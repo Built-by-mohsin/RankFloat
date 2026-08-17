@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Position Tracker",
+  "version": "1.0.0",
+  "description": "Track your domain's organic rank on Google SERP for saved keywords.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "*://www.google.com/*",
+    "*://google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://google.com/search*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Position Tracker"
+  }
+}
